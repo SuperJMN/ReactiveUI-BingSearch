@@ -1,0 +1,56 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:rxUiSample="clr-namespace:RxUISample"
+    x:Class="RxUISample.MainWindow"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d"    
+    Title="Bing Search" Height="436" Width="862"
+    FontSize="16" d:DataContext="{d:DesignInstance rxUiSample:MainViewModel}">
+    <Grid Background="{x:Static SystemColors.ControlLightBrush}">
+        <Grid.Resources>
+            <Style TargetType="{x:Type FrameworkElement}">
+                <Setter Property="Margin" Value="5" />
+            </Style>
+            <Style TargetType="{x:Type GroupBox}" BasedOn="{StaticResource {x:Type FrameworkElement}}" />
+            <Style TargetType="{x:Type ListBox}" BasedOn="{StaticResource {x:Type FrameworkElement}}" />
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <GroupBox Header="Search">
+            <TextBox ToolTip="Type a search query" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" />
+        </GroupBox>
+        <ListBox HorizontalContentAlignment="Stretch" Grid.Row="1"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="8"
+                 ItemsSource="{Binding SearchResults}">
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="{x:Type rxUiSample:SearchResultViewModel}">
+                    <StackPanel Margin="5" d:DesignWidth="551" d:DesignHeight="124">
+                        <TextBlock Text="{Binding Title, Mode=OneWay}">
+                            <TextBlock.Effect>
+                                <DropShadowEffect ShadowDepth="5" BlurRadius="4" Opacity="0.3" />
+                            </TextBlock.Effect>
+                        </TextBlock>
+                        <TextBlock Text="{Binding DisplayUrl, Mode=OneWay}" FontSize="12" />
+                        <TextBlock Margin="10" TextWrapping="Wrap" TextTrimming="CharacterEllipsis"
+                                   Text="{Binding Description}" />
+                        <TextBlock FontSize="12" Margin="12,2" TextAlignment="Right">
+                            <Hyperlink Command="{Binding OpenUrlCommand}" NavigateUri="{Binding Url}">
+                                <Run Text="{Binding DisplayUrl, Mode=OneWay}" />
+                            </Hyperlink>
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StatusBar Grid.Row="2">
+            <StatusBarItem />
+        </StatusBar>
+    </Grid>
+</Window>

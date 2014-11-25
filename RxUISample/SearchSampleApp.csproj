@@ -7,8 +7,8 @@
     <ProjectGuid>{635DD39A-250B-4BEE-8859-C646A520797E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RxUISample</RootNamespace>
-    <AssemblyName>RxUISample</AssemblyName>
+    <RootNamespace>SearchSampleApp</RootNamespace>
+    <AssemblyName>SearchSampleApp</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -77,7 +77,6 @@
       <HintPath>..\packages\Rx-XAML.2.2.5\lib\net45\System.Reactive.Windows.Threading.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Windows.Interactivity" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xaml">
@@ -92,9 +91,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AppKeyViewModel.cs" />
+    <Compile Include="AppKeyWindow.xaml.cs">
+      <DependentUpon>AppKeyWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BingSearchService.cs" />
+    <Compile Include="Bing\ExpandableSearchResult.cs" />
+    <Compile Include="Bing\ImageResult.cs" />
+    <Compile Include="IMainViewModel.cs" />
     <Compile Include="IWebSearchService.cs" />
+    <Compile Include="Bing\NewsResult.cs" />
+    <Compile Include="Bing\RelatedSearchResult.cs" />
     <Compile Include="SearchResult.cs" />
     <Compile Include="SearchResultViewModel.cs" />
+    <Compile Include="Bing\SpellResult.cs" />
+    <Compile Include="Bing\Thumbnail.cs" />
+    <Compile Include="Bing\VideoResult.cs" />
+    <Compile Include="Bing\WebResult.cs" />
+    <Page Include="AppKeyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -103,7 +120,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BingSearchContainer.cs" />
+    <Compile Include="Bing\BingSearchContainer.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

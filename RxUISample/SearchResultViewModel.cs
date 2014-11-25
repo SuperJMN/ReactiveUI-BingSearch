@@ -1,8 +1,9 @@
-using System;
-using ReactiveUI;
-
-namespace RxUISample
+namespace SearchSampleApp
 {
+    using System;
+
+    using ReactiveUI;
+
     public class SearchResultViewModel : ReactiveObject
     {
         private readonly SearchResult searchResult;
@@ -11,8 +12,8 @@ namespace RxUISample
         {
             this.searchResult = searchResult;
 
-            OpenUrlCommand = ReactiveCommand.Create();
-            OpenUrlCommand.Subscribe(_ => OpenUrl(searchResult.Url) );
+            this.OpenUrlCommand = ReactiveCommand.Create();
+            this.OpenUrlCommand.Subscribe(_ => this.OpenUrl(searchResult.Url) );
         }
 
         private void OpenUrl(Uri url)
@@ -25,22 +26,22 @@ namespace RxUISample
 
         public string Title
         {
-            get { return searchResult.Title; }
+            get { return this.searchResult.Title; }
         }
 
         public string Description
         {
-            get { return searchResult.Description; }
+            get { return this.searchResult.Description; }
         }
 
         public Uri Url
         {
-            get { return searchResult.Url; }
+            get { return this.searchResult.Url; }
         }
 
         public string DisplayUrl
         {
-            get { return searchResult.DisplayUrl; }
+            get { return this.searchResult.DisplayUrl; }
         }
 
         public ReactiveCommand<object> OpenUrlCommand { get; private set; }

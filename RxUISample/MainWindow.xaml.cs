@@ -1,12 +1,13 @@
-﻿using System.Windows;
-using ReactiveUI;
-
-namespace RxUISample
+﻿namespace SearchSampleApp
 {
-    public partial class MainWindow : IViewFor<IMainViewModel>
+    using System.Windows;
+
+    using ReactiveUI;
+
+    public partial class MainWindow : IViewFor<MainViewModel>
     {
         public static readonly DependencyProperty ViewModelProperty = DependencyProperty.Register("ViewModel", typeof(IMainViewModel), typeof(MainWindow));
-        private IMainViewModel viewModel;
+        private MainViewModel viewModel;
 
         public MainWindow()
         {
@@ -15,17 +16,17 @@ namespace RxUISample
 
         object IViewFor.ViewModel
         {
-            get { return ViewModel; }
-            set { ViewModel = (MainViewModel) value; }
+            get { return this.ViewModel; }
+            set { this.ViewModel = (MainViewModel) value; }
         }
 
-        public IMainViewModel ViewModel
+        public MainViewModel ViewModel
         {
-            get { return viewModel; }
+            get { return this.viewModel; }
             set
             {
-                viewModel = value;
-                DataContext = value;
+                this.viewModel = value;
+                this.DataContext = value;
             }
         }
     }

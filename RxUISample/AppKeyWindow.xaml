@@ -1,0 +1,19 @@
+﻿<Window x:Class="SearchSampleApp.AppKeyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:searchSampleApp="clr-namespace:SearchSampleApp"
+        SizeToContent="Height"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"        
+        Title="AppKey For Bing" Width="300" d:DataContext="{d:DesignInstance searchSampleApp:AppKeyViewModel}">
+    <StackPanel Margin="5">
+        <TextBlock TextWrapping="Wrap" Text="Please, enter your App Key for the Bing API V2. It can be found at https://datamarket.azure.com/dataset/bing/searchweb" />
+        <TextBox Margin="8" Text="{Binding AppKey}" />
+        <UniformGrid Margin="4" Rows="1" HorizontalAlignment="Right">
+            <Button IsCancel="True"  Content="Accept" Margin="4" Padding="4" Click="ButtonBase_OnClick" />
+            <Button Content="Cancel" Margin="4" Padding="4" />
+        </UniformGrid>
+    </StackPanel>
+</Window>

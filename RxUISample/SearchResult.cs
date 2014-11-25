@@ -1,7 +1,7 @@
-using System;
-
-namespace RxUISample
+namespace SearchSampleApp
 {
+    using System;
+
     public class SearchResult
     {
         public string Title { get; set; }

@@ -1,14 +1,12 @@
 ﻿using System.Windows;
 using Grace.DependencyInjection;
-using ReactiveUI;
-using Splat;
 
 namespace RxUISample
 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App
     {
         private const string AppKey = @"PUT YOUR APP KEY HERE";
 

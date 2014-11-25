@@ -12,28 +12,28 @@ namespace SearchSampleApp.Bing
         
         public Guid ID {
             get {
-                return this._ID;
+                return _ID;
             }
             set {
-                this._ID = value;
+                _ID = value;
             }
         }
         
         public String Title {
             get {
-                return this._Title;
+                return _Title;
             }
             set {
-                this._Title = value;
+                _Title = value;
             }
         }
         
         public String BingUrl {
             get {
-                return this._BingUrl;
+                return _BingUrl;
             }
             set {
-                this._BingUrl = value;
+                _BingUrl = value;
             }
         }
     }

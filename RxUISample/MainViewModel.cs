@@ -5,8 +5,6 @@ namespace SearchSampleApp
     using System.Linq;
     using System.Reactive.Linq;
     using System.Threading.Tasks;
-    using System.Windows;
-
     using ReactiveUI;
 
     public class MainViewModel : ReactiveObject, IMainViewModel
@@ -18,27 +16,33 @@ namespace SearchSampleApp
         public MainViewModel(IWebSearchService searchService)
         {
             this.searchService = searchService;
-            var p = this.ObservableForProperty(model => model.SearchText)
-                .Throttle(TimeSpan.FromMilliseconds(300));
+            var searchTextObservable = this.ObservableForProperty(model => model.SearchText)
+                .Throttle(TimeSpan.FromMilliseconds(300), RxApp.MainThreadScheduler);
 
-            var results = p.Select(change => this.Search(change.Value));
-            var switched = results.Switch();
+            var resultsForTextObservable = searchTextObservable.Select(textChange => Search(textChange.Value));
+            var latestResultsObservable = resultsForTextObservable.Switch();
 
-            switched.ObserveOn(Application.Current)
-                .Subscribe(rs => this.SearchResults = rs.Select(r => new SearchResultViewModel(r)));
+            latestResultsObservable
+                .ObserveOn(RxApp.MainThreadScheduler)
+                .Subscribe(SetSearchResults);
         }
 
-        private Task<List<SearchResult>> Search(string query)
+        private void SetSearchResults(IEnumerable<SearchResult> results)
         {
-            return Task.Factory.StartNew(() => this.searchService.Search(query).ToList());
+            SearchResults = results.Select(r => new SearchResultViewModel(r));
+        }
+
+        private Task<IEnumerable<SearchResult>> Search(string query)
+        {
+            return Task.Factory.StartNew(() => searchService.Search(query));
         }
 
         public IEnumerable<SearchResultViewModel> SearchResults
         {
-            get { return this.searchResults; }
+            get { return searchResults; }
             set
             {
-                this.RaiseAndSetIfChanged(ref this.searchResults, value);
+                this.RaiseAndSetIfChanged(ref searchResults, value);
             }
         }
 
@@ -46,10 +50,10 @@ namespace SearchSampleApp
 
         public string SearchText
         {
-            get { return this.searchText; }
+            get { return searchText; }
             set
             {
-                this.RaiseAndSetIfChanged(ref this.searchText, value);
+                this.RaiseAndSetIfChanged(ref searchText, value);
             }
         }
     }

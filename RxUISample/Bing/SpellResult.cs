@@ -10,19 +10,19 @@ namespace SearchSampleApp.Bing
         
         public Guid ID {
             get {
-                return this._ID;
+                return _ID;
             }
             set {
-                this._ID = value;
+                _ID = value;
             }
         }
         
         public String Value {
             get {
-                return this._Value;
+                return _Value;
             }
             set {
-                this._Value = value;
+                _Value = value;
             }
         }
     }

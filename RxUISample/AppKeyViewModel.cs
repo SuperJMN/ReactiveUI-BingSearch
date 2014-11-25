@@ -6,7 +6,7 @@
     {
         public AppKeyViewModel(string currentKey)
         {
-            this.AppKey = currentKey;
+            AppKey = currentKey;
         }
 
         public string AppKey { get; set; }

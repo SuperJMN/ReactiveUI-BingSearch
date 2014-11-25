@@ -14,8 +14,8 @@
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = true;
-            this.Close();
+            DialogResult = true;
+            Close();
         }
     }
 }

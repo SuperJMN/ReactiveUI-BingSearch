@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace SearchSampleApp
 {
     using System;
@@ -12,36 +14,36 @@ namespace SearchSampleApp
         {
             this.searchResult = searchResult;
 
-            this.OpenUrlCommand = ReactiveCommand.Create();
-            this.OpenUrlCommand.Subscribe(_ => this.OpenUrl(searchResult.Url) );
+            OpenUrlCommand = ReactiveCommand.Create();
+            OpenUrlCommand.Subscribe(_ => OpenUrl(searchResult.Url) );
         }
 
         private void OpenUrl(Uri url)
         {
-            var psi = new System.Diagnostics.ProcessStartInfo();
+            var psi = new ProcessStartInfo();
             psi.UseShellExecute = true;
             psi.FileName = url.ToString();
-            System.Diagnostics.Process.Start(psi);
+            Process.Start(psi);
         }
 
         public string Title
         {
-            get { return this.searchResult.Title; }
+            get { return searchResult.Title; }
         }
 
         public string Description
         {
-            get { return this.searchResult.Description; }
+            get { return searchResult.Description; }
         }
 
         public Uri Url
         {
-            get { return this.searchResult.Url; }
+            get { return searchResult.Url; }
         }
 
         public string DisplayUrl
         {
-            get { return this.searchResult.DisplayUrl; }
+            get { return searchResult.DisplayUrl; }
         }
 
         public ReactiveCommand<object> OpenUrlCommand { get; private set; }

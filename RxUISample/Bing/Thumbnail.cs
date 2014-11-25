@@ -16,46 +16,46 @@ namespace SearchSampleApp.Bing
         
         public String MediaUrl {
             get {
-                return this._MediaUrl;
+                return _MediaUrl;
             }
             set {
-                this._MediaUrl = value;
+                _MediaUrl = value;
             }
         }
         
         public String ContentType {
             get {
-                return this._ContentType;
+                return _ContentType;
             }
             set {
-                this._ContentType = value;
+                _ContentType = value;
             }
         }
         
         public Int32? Width {
             get {
-                return this._Width;
+                return _Width;
             }
             set {
-                this._Width = value;
+                _Width = value;
             }
         }
         
         public Int32? Height {
             get {
-                return this._Height;
+                return _Height;
             }
             set {
-                this._Height = value;
+                _Height = value;
             }
         }
         
         public Int64? FileSize {
             get {
-                return this._FileSize;
+                return _FileSize;
             }
             set {
-                this._FileSize = value;
+                _FileSize = value;
             }
         }
     }

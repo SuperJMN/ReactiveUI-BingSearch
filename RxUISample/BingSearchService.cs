@@ -5,7 +5,7 @@ namespace SearchSampleApp
     using System.Linq;
     using System.Net;
 
-    using SearchSampleApp.Bing;
+    using Bing;
 
     class BingSearchService : IWebSearchService
     {
@@ -16,7 +16,7 @@ namespace SearchSampleApp
 
         public BingSearchService(string apiKey)
         {
-            this.bingContainer = new BingSearchContainer(new Uri(ServiceUrl))
+            bingContainer = new BingSearchContainer(new Uri(ServiceUrl))
                                 {
                                     Credentials = new NetworkCredential(apiKey, apiKey)
                                 };
@@ -24,7 +24,7 @@ namespace SearchSampleApp
 
         public IEnumerable<SearchResult> Search(string query)
         {
-            List<WebResult> dataServiceQuery = this.bingContainer.Web(query, null, null, "es-ES", null, null, null, null).ToList();
+            List<WebResult> dataServiceQuery = bingContainer.Web(query, null, null, "es-ES", null, null, null, null).ToList();
 
             return from result in dataServiceQuery
                    select new SearchResult

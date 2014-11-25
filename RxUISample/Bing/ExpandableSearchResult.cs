@@ -1,3 +1,5 @@
+using System.Collections.ObjectModel;
+
 namespace SearchSampleApp.Bing
 {
     using System;
@@ -28,177 +30,177 @@ namespace SearchSampleApp.Bing
         
         private String _AlterationOverrideQuery;
         
-        private System.Collections.ObjectModel.Collection<WebResult> _Web;
+        private Collection<WebResult> _Web;
         
-        private System.Collections.ObjectModel.Collection<ImageResult> _Image;
+        private Collection<ImageResult> _Image;
         
-        private System.Collections.ObjectModel.Collection<VideoResult> _Video;
+        private Collection<VideoResult> _Video;
         
-        private System.Collections.ObjectModel.Collection<NewsResult> _News;
+        private Collection<NewsResult> _News;
         
-        private System.Collections.ObjectModel.Collection<RelatedSearchResult> _RelatedSearch;
+        private Collection<RelatedSearchResult> _RelatedSearch;
         
-        private System.Collections.ObjectModel.Collection<SpellResult> _SpellingSuggestions;
+        private Collection<SpellResult> _SpellingSuggestions;
         
         public Guid ID {
             get {
-                return this._ID;
+                return _ID;
             }
             set {
-                this._ID = value;
+                _ID = value;
             }
         }
         
         public Int64? WebTotal {
             get {
-                return this._WebTotal;
+                return _WebTotal;
             }
             set {
-                this._WebTotal = value;
+                _WebTotal = value;
             }
         }
         
         public Int64? WebOffset {
             get {
-                return this._WebOffset;
+                return _WebOffset;
             }
             set {
-                this._WebOffset = value;
+                _WebOffset = value;
             }
         }
         
         public Int64? ImageTotal {
             get {
-                return this._ImageTotal;
+                return _ImageTotal;
             }
             set {
-                this._ImageTotal = value;
+                _ImageTotal = value;
             }
         }
         
         public Int64? ImageOffset {
             get {
-                return this._ImageOffset;
+                return _ImageOffset;
             }
             set {
-                this._ImageOffset = value;
+                _ImageOffset = value;
             }
         }
         
         public Int64? VideoTotal {
             get {
-                return this._VideoTotal;
+                return _VideoTotal;
             }
             set {
-                this._VideoTotal = value;
+                _VideoTotal = value;
             }
         }
         
         public Int64? VideoOffset {
             get {
-                return this._VideoOffset;
+                return _VideoOffset;
             }
             set {
-                this._VideoOffset = value;
+                _VideoOffset = value;
             }
         }
         
         public Int64? NewsTotal {
             get {
-                return this._NewsTotal;
+                return _NewsTotal;
             }
             set {
-                this._NewsTotal = value;
+                _NewsTotal = value;
             }
         }
         
         public Int64? NewsOffset {
             get {
-                return this._NewsOffset;
+                return _NewsOffset;
             }
             set {
-                this._NewsOffset = value;
+                _NewsOffset = value;
             }
         }
         
         public Int64? SpellingSuggestionsTotal {
             get {
-                return this._SpellingSuggestionsTotal;
+                return _SpellingSuggestionsTotal;
             }
             set {
-                this._SpellingSuggestionsTotal = value;
+                _SpellingSuggestionsTotal = value;
             }
         }
         
         public String AlteredQuery {
             get {
-                return this._AlteredQuery;
+                return _AlteredQuery;
             }
             set {
-                this._AlteredQuery = value;
+                _AlteredQuery = value;
             }
         }
         
         public String AlterationOverrideQuery {
             get {
-                return this._AlterationOverrideQuery;
+                return _AlterationOverrideQuery;
             }
             set {
-                this._AlterationOverrideQuery = value;
+                _AlterationOverrideQuery = value;
             }
         }
         
-        public System.Collections.ObjectModel.Collection<WebResult> Web {
+        public Collection<WebResult> Web {
             get {
-                return this._Web;
+                return _Web;
             }
             set {
-                this._Web = value;
+                _Web = value;
             }
         }
         
-        public System.Collections.ObjectModel.Collection<ImageResult> Image {
+        public Collection<ImageResult> Image {
             get {
-                return this._Image;
+                return _Image;
             }
             set {
-                this._Image = value;
+                _Image = value;
             }
         }
         
-        public System.Collections.ObjectModel.Collection<VideoResult> Video {
+        public Collection<VideoResult> Video {
             get {
-                return this._Video;
+                return _Video;
             }
             set {
-                this._Video = value;
+                _Video = value;
             }
         }
         
-        public System.Collections.ObjectModel.Collection<NewsResult> News {
+        public Collection<NewsResult> News {
             get {
-                return this._News;
+                return _News;
             }
             set {
-                this._News = value;
+                _News = value;
             }
         }
         
-        public System.Collections.ObjectModel.Collection<RelatedSearchResult> RelatedSearch {
+        public Collection<RelatedSearchResult> RelatedSearch {
             get {
-                return this._RelatedSearch;
+                return _RelatedSearch;
             }
             set {
-                this._RelatedSearch = value;
+                _RelatedSearch = value;
             }
         }
         
-        public System.Collections.ObjectModel.Collection<SpellResult> SpellingSuggestions {
+        public Collection<SpellResult> SpellingSuggestions {
             get {
-                return this._SpellingSuggestions;
+                return _SpellingSuggestions;
             }
             set {
-                this._SpellingSuggestions = value;
+                _SpellingSuggestions = value;
             }
         }
     }

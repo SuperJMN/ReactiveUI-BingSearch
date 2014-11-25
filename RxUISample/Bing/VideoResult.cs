@@ -18,55 +18,55 @@ namespace SearchSampleApp.Bing
         
         public Guid ID {
             get {
-                return this._ID;
+                return _ID;
             }
             set {
-                this._ID = value;
+                _ID = value;
             }
         }
         
         public String Title {
             get {
-                return this._Title;
+                return _Title;
             }
             set {
-                this._Title = value;
+                _Title = value;
             }
         }
         
         public String MediaUrl {
             get {
-                return this._MediaUrl;
+                return _MediaUrl;
             }
             set {
-                this._MediaUrl = value;
+                _MediaUrl = value;
             }
         }
         
         public String DisplayUrl {
             get {
-                return this._DisplayUrl;
+                return _DisplayUrl;
             }
             set {
-                this._DisplayUrl = value;
+                _DisplayUrl = value;
             }
         }
         
         public Int32? RunTime {
             get {
-                return this._RunTime;
+                return _RunTime;
             }
             set {
-                this._RunTime = value;
+                _RunTime = value;
             }
         }
         
         public Thumbnail Thumbnail {
             get {
-                return this._Thumbnail;
+                return _Thumbnail;
             }
             set {
-                this._Thumbnail = value;
+                _Thumbnail = value;
             }
         }
     }

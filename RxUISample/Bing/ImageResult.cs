@@ -26,91 +26,91 @@ namespace SearchSampleApp.Bing
         
         public Guid ID {
             get {
-                return this._ID;
+                return _ID;
             }
             set {
-                this._ID = value;
+                _ID = value;
             }
         }
         
         public String Title {
             get {
-                return this._Title;
+                return _Title;
             }
             set {
-                this._Title = value;
+                _Title = value;
             }
         }
         
         public String MediaUrl {
             get {
-                return this._MediaUrl;
+                return _MediaUrl;
             }
             set {
-                this._MediaUrl = value;
+                _MediaUrl = value;
             }
         }
         
         public String SourceUrl {
             get {
-                return this._SourceUrl;
+                return _SourceUrl;
             }
             set {
-                this._SourceUrl = value;
+                _SourceUrl = value;
             }
         }
         
         public String DisplayUrl {
             get {
-                return this._DisplayUrl;
+                return _DisplayUrl;
             }
             set {
-                this._DisplayUrl = value;
+                _DisplayUrl = value;
             }
         }
         
         public Int32? Width {
             get {
-                return this._Width;
+                return _Width;
             }
             set {
-                this._Width = value;
+                _Width = value;
             }
         }
         
         public Int32? Height {
             get {
-                return this._Height;
+                return _Height;
             }
             set {
-                this._Height = value;
+                _Height = value;
             }
         }
         
         public Int64? FileSize {
             get {
-                return this._FileSize;
+                return _FileSize;
             }
             set {
-                this._FileSize = value;
+                _FileSize = value;
             }
         }
         
         public String ContentType {
             get {
-                return this._ContentType;
+                return _ContentType;
             }
             set {
-                this._ContentType = value;
+                _ContentType = value;
             }
         }
         
         public Thumbnail Thumbnail {
             get {
-                return this._Thumbnail;
+                return _Thumbnail;
             }
             set {
-                this._Thumbnail = value;
+                _Thumbnail = value;
             }
         }
     }

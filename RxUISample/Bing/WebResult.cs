@@ -16,46 +16,46 @@ namespace SearchSampleApp.Bing
         
         public Guid ID {
             get {
-                return this._ID;
+                return _ID;
             }
             set {
-                this._ID = value;
+                _ID = value;
             }
         }
         
         public String Title {
             get {
-                return this._Title;
+                return _Title;
             }
             set {
-                this._Title = value;
+                _Title = value;
             }
         }
         
         public String Description {
             get {
-                return this._Description;
+                return _Description;
             }
             set {
-                this._Description = value;
+                _Description = value;
             }
         }
         
         public String DisplayUrl {
             get {
-                return this._DisplayUrl;
+                return _DisplayUrl;
             }
             set {
-                this._DisplayUrl = value;
+                _DisplayUrl = value;
             }
         }
         
         public String Url {
             get {
-                return this._Url;
+                return _Url;
             }
             set {
-                this._Url = value;
+                _Url = value;
             }
         }
     }

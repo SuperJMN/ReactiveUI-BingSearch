@@ -4,7 +4,7 @@
 
     using Grace.DependencyInjection;
 
-    using SearchSampleApp.Properties;
+    using Properties;
 
     public partial class App
     {
@@ -13,7 +13,7 @@
         {
             Current.ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
-            var appKey = this.GetAppKey();
+            var appKey = GetAppKey();
             if (appKey == null)
             {
                 Current.Shutdown();

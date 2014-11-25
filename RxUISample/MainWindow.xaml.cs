@@ -16,17 +16,17 @@
 
         object IViewFor.ViewModel
         {
-            get { return this.ViewModel; }
-            set { this.ViewModel = (MainViewModel) value; }
+            get { return ViewModel; }
+            set { ViewModel = (MainViewModel) value; }
         }
 
         public MainViewModel ViewModel
         {
-            get { return this.viewModel; }
+            get { return viewModel; }
             set
             {
-                this.viewModel = value;
-                this.DataContext = value;
+                viewModel = value;
+                DataContext = value;
             }
         }
     }

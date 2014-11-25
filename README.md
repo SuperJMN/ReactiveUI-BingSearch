@@ -1,6 +1,8 @@
 ReactiveUI-BingSearch
 =====================
 
+![alt tag](http://s1.postimg.org/n6e8hree7/Screenshot.png)
+
 This is a sample application that uses ReactiveUI (and Reactive Extensions) to perform searches using the Bing Search API.
 
 To run it, you have to get an "API Key" from http://datamarket.azure.com/dataset/bing/searchweb

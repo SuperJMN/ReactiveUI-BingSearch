@@ -5,6 +5,5 @@ This is a sample application that uses ReactiveUI (and Reactive Extensions) to p
 
 To run it, you have to get an "API Key" from http://datamarket.azure.com/dataset/bing/searchweb
 
-Register, get one an run it.
-
-The application will ask you to enter the key when it starts and you are done :)
+* Register, get one an run the application.
+* The application will ask you to enter the key when it starts and you are done :)

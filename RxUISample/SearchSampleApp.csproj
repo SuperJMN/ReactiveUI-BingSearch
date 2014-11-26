@@ -98,7 +98,6 @@
     <Compile Include="BingSearchService.cs" />
     <Compile Include="Bing\ExpandableSearchResult.cs" />
     <Compile Include="Bing\ImageResult.cs" />
-    <Compile Include="IMainViewModel.cs" />
     <Compile Include="IWebSearchService.cs" />
     <Compile Include="Bing\NewsResult.cs" />
     <Compile Include="Bing\RelatedSearchResult.cs" />

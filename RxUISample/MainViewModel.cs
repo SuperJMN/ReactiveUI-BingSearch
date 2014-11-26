@@ -7,7 +7,7 @@ namespace SearchSampleApp
     using System.Threading.Tasks;
     using ReactiveUI;
 
-    public class MainViewModel : ReactiveObject, IMainViewModel
+    public class MainViewModel : ReactiveObject
     {
         private readonly IWebSearchService searchService;
 

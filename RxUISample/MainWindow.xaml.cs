@@ -6,7 +6,6 @@
 
     public partial class MainWindow : IViewFor<MainViewModel>
     {
-        public static readonly DependencyProperty ViewModelProperty = DependencyProperty.Register("ViewModel", typeof(IMainViewModel), typeof(MainWindow));
         private MainViewModel viewModel;
 
         public MainWindow()

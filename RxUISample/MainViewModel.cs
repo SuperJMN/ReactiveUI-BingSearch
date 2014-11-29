@@ -1,3 +1,7 @@
+using System.Reactive;
+using System.Reactive.Subjects;
+using System.Threading;
+
 namespace SearchSampleApp
 {
     using System;
@@ -10,31 +14,41 @@ namespace SearchSampleApp
     public class MainViewModel : ReactiveObject
     {
         private readonly IWebSearchService searchService;
-
+        private bool isExecuting;
         private string searchText;
 
         public MainViewModel(IWebSearchService searchService)
         {
             this.searchService = searchService;
             var searchTextObservable = this.ObservableForProperty(model => model.SearchText)
-                .Throttle(TimeSpan.FromMilliseconds(300), RxApp.MainThreadScheduler);
+                .Throttle(TimeSpan.FromMilliseconds(500), RxApp.MainThreadScheduler);
 
-            var resultsForTextObservable = searchTextObservable.Select(textChange => Search(textChange.Value));
-            var latestResultsObservable = resultsForTextObservable.Switch();
-
-            latestResultsObservable
+            searchTextObservable.Select(async textChange => await Search(textChange.Value))
+                .Switch()
                 .ObserveOn(RxApp.MainThreadScheduler)
                 .Subscribe(SetSearchResults);
+        }
+
+        private async Task<IEnumerable<SearchResult>> Search(string query)
+        {
+            IsExecuting = true;
+            var results = await Task.Factory.StartNew(() => searchService.Search(query));
+            IsExecuting = false;
+            return results;
+        }
+
+        public bool IsExecuting
+        {
+            get { return isExecuting; }
+            set
+            {
+                this.RaiseAndSetIfChanged(ref isExecuting, value);
+            }
         }
 
         private void SetSearchResults(IEnumerable<SearchResult> results)
         {
             SearchResults = results.Select(r => new SearchResultViewModel(r));
-        }
-
-        private Task<IEnumerable<SearchResult>> Search(string query)
-        {
-            return Task.Factory.StartNew(() => searchService.Search(query));
         }
 
         public IEnumerable<SearchResultViewModel> SearchResults

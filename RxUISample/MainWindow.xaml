@@ -50,7 +50,20 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <StatusBar Grid.Row="2">
-            <StatusBarItem />
+            <StatusBarItem>
+                <TextBlock Text="Searching...">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type FrameworkElement}">
+                            <Setter Property="Visibility" Value="Hidden" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsExecuting}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </StatusBarItem>
         </StatusBar>
     </Grid>
 </Window>

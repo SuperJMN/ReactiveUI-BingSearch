@@ -1,6 +1,3 @@
-using System.Reactive;
-using System.Reactive.Subjects;
-using System.Threading;
 
 namespace SearchSampleApp
 {
@@ -13,13 +10,13 @@ namespace SearchSampleApp
 
     public class MainViewModel : ReactiveObject
     {
-        private readonly IWebSearchService searchService;
-        private bool isExecuting;
-        private string searchText;
+        private readonly IWebSearchService _searchService;
+        private bool _isExecuting;
+        private string _searchText;
 
         public MainViewModel(IWebSearchService searchService)
         {
-            this.searchService = searchService;
+            _searchService = searchService;
             var searchTextObservable = this.ObservableForProperty(model => model.SearchText)
                 .Throttle(TimeSpan.FromMilliseconds(500), RxApp.MainThreadScheduler);
 
@@ -32,17 +29,17 @@ namespace SearchSampleApp
         private async Task<IEnumerable<SearchResult>> Search(string query)
         {
             IsExecuting = true;
-            var results = await Task.Factory.StartNew(() => searchService.Search(query));
+            var results = await Task.Factory.StartNew(() => _searchService.Search(query));
             IsExecuting = false;
             return results;
         }
 
         public bool IsExecuting
         {
-            get { return isExecuting; }
+            get { return _isExecuting; }
             set
             {
-                this.RaiseAndSetIfChanged(ref isExecuting, value);
+                this.RaiseAndSetIfChanged(ref _isExecuting, value);
             }
         }
 
@@ -53,21 +50,21 @@ namespace SearchSampleApp
 
         public IEnumerable<SearchResultViewModel> SearchResults
         {
-            get { return searchResults; }
+            get { return _searchResults; }
             set
             {
-                this.RaiseAndSetIfChanged(ref searchResults, value);
+                this.RaiseAndSetIfChanged(ref _searchResults, value);
             }
         }
 
-        private IEnumerable<SearchResultViewModel> searchResults;
+        private IEnumerable<SearchResultViewModel> _searchResults;
 
         public string SearchText
         {
-            get { return searchText; }
+            get { return _searchText; }
             set
             {
-                this.RaiseAndSetIfChanged(ref searchText, value);
+                this.RaiseAndSetIfChanged(ref _searchText, value);
             }
         }
     }

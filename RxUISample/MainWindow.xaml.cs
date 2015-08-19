@@ -1,12 +1,11 @@
-﻿namespace SearchSampleApp
+﻿
+namespace SearchSampleApp
 {
-    using System.Windows;
-
     using ReactiveUI;
 
     public partial class MainWindow : IViewFor<MainViewModel>
     {
-        private MainViewModel viewModel;
+        private MainViewModel _viewModel;
 
         public MainWindow()
         {
@@ -21,10 +20,10 @@
 
         public MainViewModel ViewModel
         {
-            get { return viewModel; }
+            get { return _viewModel; }
             set
             {
-                viewModel = value;
+                _viewModel = value;
                 DataContext = value;
             }
         }

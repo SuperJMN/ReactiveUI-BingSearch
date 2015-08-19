@@ -11,12 +11,12 @@ namespace SearchSampleApp
     {
         private const string ServiceUrl = @"https://api.datamarket.azure.com/Bing/SearchWeb/v1/Web";
 
-        private readonly BingSearchContainer bingContainer;
+        private readonly BingSearchContainer _bingContainer;
 
 
         public BingSearchService(string apiKey)
         {
-            bingContainer = new BingSearchContainer(new Uri(ServiceUrl))
+            _bingContainer = new BingSearchContainer(new Uri(ServiceUrl))
                                 {
                                     Credentials = new NetworkCredential(apiKey, apiKey)
                                 };
@@ -24,7 +24,7 @@ namespace SearchSampleApp
 
         public IEnumerable<SearchResult> Search(string query)
         {
-            List<WebResult> dataServiceQuery = bingContainer.Web(query, null, null, "es-ES", null, null, null, null).ToList();
+            List<WebResult> dataServiceQuery = _bingContainer.Web(query, null, null, "es-ES", null, null, null, null).ToList();
 
             return from result in dataServiceQuery
                    select new SearchResult

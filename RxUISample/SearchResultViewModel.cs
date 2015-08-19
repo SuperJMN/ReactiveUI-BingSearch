@@ -1,18 +1,17 @@
-using System.Diagnostics;
 
 namespace SearchSampleApp
 {
     using System;
-
+    using System.Diagnostics;
     using ReactiveUI;
 
     public class SearchResultViewModel : ReactiveObject
     {
-        private readonly SearchResult searchResult;
+        private readonly SearchResult _searchResult;
 
         public SearchResultViewModel(SearchResult searchResult)
         {
-            this.searchResult = searchResult;
+            _searchResult = searchResult;
 
             OpenUrlCommand = ReactiveCommand.Create();
             OpenUrlCommand.Subscribe(_ => OpenUrl(searchResult.Url) );
@@ -28,22 +27,22 @@ namespace SearchSampleApp
 
         public string Title
         {
-            get { return searchResult.Title; }
+            get { return _searchResult.Title; }
         }
 
         public string Description
         {
-            get { return searchResult.Description; }
+            get { return _searchResult.Description; }
         }
 
         public Uri Url
         {
-            get { return searchResult.Url; }
+            get { return _searchResult.Url; }
         }
 
         public string DisplayUrl
         {
-            get { return searchResult.DisplayUrl; }
+            get { return _searchResult.DisplayUrl; }
         }
 
         public ReactiveCommand<object> OpenUrlCommand { get; private set; }
